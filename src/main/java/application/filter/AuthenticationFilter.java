@@ -29,7 +29,6 @@ public class AuthenticationFilter extends ZuulFilter {
     public Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest httpServletRequest = ctx.getRequest();
-        System.out.println("We just got the fucking request");
         return null;
     }
 }

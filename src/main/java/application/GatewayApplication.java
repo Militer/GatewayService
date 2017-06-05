@@ -1,6 +1,8 @@
 package application;
 
 import application.filter.AuthenticationFilter;
+import application.filter.PerformancePostFilter;
+import application.filter.PerformancePreFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -17,12 +19,22 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class GatewayApplication {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);
     }
 
     @Bean
-    public AuthenticationFilter authenticationFilter(){
+    public AuthenticationFilter authenticationFilter() {
         return new AuthenticationFilter();
+    }
+
+    @Bean
+    public PerformancePreFilter performancePreFilter() {
+        return new PerformancePreFilter();
+    }
+
+    @Bean
+    public PerformancePostFilter performancePostFilter() {
+        return new PerformancePostFilter();
     }
 }
