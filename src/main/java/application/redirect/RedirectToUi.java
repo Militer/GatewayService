@@ -15,6 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class RedirectToUi {
     @GetMapping("/")
     public ModelAndView redirectRoot(ModelMap model) {
-        return new ModelAndView("redirect:/car-race-ui/index.html", model);
+        return new ModelAndView("redirect:/face-recognition-ui-service/index.html", model);
     }
 }
