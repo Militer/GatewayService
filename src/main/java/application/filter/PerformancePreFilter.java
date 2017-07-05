@@ -35,7 +35,7 @@ public class PerformancePreFilter extends ZuulFilter {
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest httpServletRequest = ctx.getRequest();
         String requestURI = httpServletRequest.getRequestURI();
-        if (!requestURI.endsWith("/request-monitor") && !isStaticResource(requestURI)) {
+        if (!requestURI.contains("/request-monitor") && !isStaticResource(requestURI)) {
             synchronized (this) {
                 long idValue = Long.parseLong(id);
                 id = String.valueOf(++idValue);
